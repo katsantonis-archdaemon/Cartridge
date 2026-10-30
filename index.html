@@ -236,6 +236,52 @@ dialog{width:min(640px,94vw)!important;max-width:94vw!important;margin:auto!impo
 .con .cr{display:flex;gap:6px;padding:4px 8px}.con .cr input{flex:1;min-width:0;background:#111;color:#fff;border:1px solid #fff3;border-radius:6px;padding:6px 8px;font:inherit}.con .cr .btn{padding:4px 10px;min-height:0;font-size:11px}
 .hz.open .pill{backdrop-filter:blur(8px)}
 body.playing aside,body.playing main,body.playing #bnav{visibility:hidden}
+.grid{grid-auto-rows:6px;grid-auto-flow:dense;row-gap:0!important}
+#nav{display:flex;flex-direction:column;overflow:hidden;padding:0}.ns{flex:1;overflow:auto;scrollbar-width:none;min-height:0;padding:4px 10px}.ns::-webkit-scrollbar{display:none}.nb{border-top:1px solid var(--ln);padding:8px 10px 10px}
+.cb{display:none;place-items:center;width:42px;height:26px;border-radius:7px;font:700 10px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.02em;color:var(--tx);background:color-mix(in srgb,var(--cc) 22%,transparent);border:1px solid color-mix(in srgb,var(--cc) 55%,transparent)}
+nav button{transition:background .18s,color .18s,transform .12s}nav button:active{transform:scale(.96)}
+.lm{transition:transform .35s cubic-bezier(.2,.9,.3,1.3)}.logo:hover .lm{transform:rotate(-5deg) scale(1.08)}
+.btn{transition:transform .14s,background .18s,border-color .18s,filter .18s}.btn:hover{transform:translateY(-1px)}.btn:active{transform:scale(.97)}
+.card{transition:transform .22s cubic-bezier(.2,.8,.2,1),box-shadow .22s,border-color .22s}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 30px -16px color-mix(in srgb,var(--ac) 60%,#000);border-color:color-mix(in srgb,var(--ac) 55%,var(--ln))}
+.cov{transition:transform .45s cubic-bezier(.2,.8,.2,1)}.card:hover .cov{transform:scale(1.04)}
+.ctile{transition:transform .2s,border-color .2s,background .2s}.ctile:hover{transform:translateY(-2px);background:color-mix(in srgb,var(--cc) 8%,var(--card))}
+@keyframes rise{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes sheet{from{transform:translateY(100%)}to{transform:none}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes drift{from{transform:scale(1.15)}to{transform:scale(1.3) translate(-2%,-1%)}}
+@keyframes toastIn{from{opacity:0;transform:translate(-50%,12px)}to{opacity:1;transform:translateX(-50%)}}
+#content.in .card{animation:rise .45s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--i,0)*30ms)}
+#content.in .ctile{animation:rise .42s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--i,0)*45ms)}
+#content.in .hh,#content.in .cont,#content.in .empty,#content.in .sh,#content.in .sg,#content.in .steps,#content.in .lk,#content.in .chips{animation:rise .5s cubic-bezier(.2,.8,.2,1) backwards}
+#content.in .sh{animation-delay:.08s}#content.in .sg:nth-of-type(n+2){animation-delay:.07s}#content.in .sg:nth-of-type(n+3){animation-delay:.14s}
+.pad{animation:floaty 4.5s ease-in-out infinite}.cbg{animation:drift 22s ease-in-out infinite alternate}body.playing .cbg,body.playing .pad{animation:none}
+dialog[open]{animation:pop .26s cubic-bezier(.2,.9,.3,1.05)}dialog::backdrop{animation:fadeIn .24s}
+@media(max-width:760px){dialog[open]{animation:sheet .32s cubic-bezier(.2,.8,.2,1)}}
+@media (orientation:landscape) and (max-height:540px){dialog[open]{animation:pop .26s cubic-bezier(.2,.9,.3,1.05)}}
+#toast{animation:toastIn .28s cubic-bezier(.2,.9,.3,1.1)}#prog{animation:toastIn .28s cubic-bezier(.2,.9,.3,1.1)}#emu{animation:fadeIn .3s}
+aside.min:not(.open){width:68px!important}
+aside.min:not(.open) .lb,aside.min:not(.open) .n,aside.min:not(.open) .lw{display:none!important}
+aside.min:not(.open) .logo{justify-content:center;padding:12px 0 8px}
+aside.min:not(.open) nav h6{display:block!important;height:1px;font-size:0;padding:0;margin:8px 16px;background:var(--ln);overflow:hidden}
+aside.min:not(.open) .ns,aside.min:not(.open) .nb{padding:0 10px}
+aside.min:not(.open) nav button{width:100%;height:46px;justify-content:center;padding:0;border-radius:12px;min-height:0}
+aside.min:not(.open) nav button.on{background:color-mix(in srgb,var(--ac) 16%,transparent);color:var(--ac);box-shadow:none}
+aside.min:not(.open) nav .dot{display:none}
+aside.min:not(.open) nav .cb{display:grid}
+@media (orientation:landscape) and (max-height:540px){
+aside:not(.open){width:68px!important}
+aside:not(.open) .lb,aside:not(.open) .n,aside:not(.open) .lw{display:none!important}
+aside:not(.open) .logo{justify-content:center;padding:12px 0 8px}
+aside:not(.open) nav h6{display:block!important;height:1px;font-size:0;padding:0;margin:8px 16px;background:var(--ln);overflow:hidden}
+aside:not(.open) .ns,aside:not(.open) .nb{padding:0 10px}
+aside:not(.open) nav button{width:100%;height:46px;justify-content:center;padding:0;border-radius:12px;min-height:0}
+aside:not(.open) nav button.on{background:color-mix(in srgb,var(--ac) 16%,transparent);color:var(--ac);box-shadow:none}
+aside:not(.open) nav .dot{display:none}
+aside:not(.open) nav .cb{display:grid}
+}
 body{height:100dvh;padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
 aside{padding-top:env(safe-area-inset-top)}
 header{padding-top:max(12px,env(safe-area-inset-top))}
@@ -352,12 +398,17 @@ const r=await sgFetch('/search/autocomplete/'+encodeURIComponent(g.title));if(!r
 let l=await sgFetch('/grids/game/'+r[0].id+'?dimensions=600x900&types=static');if(!l||!l.length)l=await sgFetch('/grids/game/'+r[0].id+'?types=static');
 if(!l||!l.length)throw new Error('SteamGridDB has no cover art for “'+r[0].name+'”.');
 const url=l[0].url;try{const b=await (await fetch(url)).blob();if(b.size<3e6)return await new Promise(ok=>{const fr=new FileReader();fr.onload=()=>ok(fr.result);fr.readAsDataURL(b)})}catch{}return url}
-const APP_VERSION='1.8.0',APP_BUILD='2026-10-28',CHANGELOG=[['1.8.0','PSP performance setting (Fast, Balanced, Quality) with native resolution by default; lighter screen while a game runs'],['1.7.4','PSP: old resume states are cleared, and a state is no longer saved before the game has started'],['1.7.3','PSP: startup message and safer video defaults'],['1.7.2','Clear message when a game file is a .pkg installer, which the emulator can’t run'],['1.7.1','PSP and packed-disc games now load with their real file name'],['1.7.0','Experimental PSP support option in Settings; clearer SteamGridDB proxy errors'],['1.6.2','Always-fullscreen option in Settings; cleaner version history in About'],['1.6.0','Landscape phone layout: icon rail, compact header, denser grids, centered dialogs; greeting punctuation fix'],['1.5.0','Simpler sidebar, Gallery and Edit cover flow, fix for covers showing grey'],['1.4.0','Android back button, cover size, clearer empty states, search clear, new sort options, CSS cleanup'],['1.3.0','Cover picker (auto-pick, then choose other art), import progress and storage checks'],['1.2.0','In-game menu: screenshot, 3 save slots, mute, fullscreen'],['1.1.0','Backup and restore, tidier Settings, version number'],['1.0.0','First numbered version: library, covers, resume, screenshots, install']];
-const isDev=()=>/^katsantonis69$/i.test((pref.name||'').trim());
+const APP_VERSION='1.9.0',APP_BUILD='2026-10-30',CHANGELOG=[['1.9.0','UI refresh: gap-free library tiling, animations, interface sounds, redesigned compact sidebar'],['1.8.0','PSP performance setting (Fast, Balanced, Quality) with native resolution by default; lighter screen while a game runs'],['1.7.4','PSP: old resume states are cleared, and a state is no longer saved before the game has started'],['1.7.3','PSP: startup message and safer video defaults'],['1.7.2','Clear message when a game file is a .pkg installer, which the emulator can’t run'],['1.7.1','PSP and packed-disc games now load with their real file name'],['1.7.0','Experimental PSP support option in Settings; clearer SteamGridDB proxy errors'],['1.6.2','Always-fullscreen option in Settings; cleaner version history in About'],['1.6.0','Landscape phone layout: icon rail, compact header, denser grids, centered dialogs; greeting punctuation fix'],['1.5.0','Simpler sidebar, Gallery and Edit cover flow, fix for covers showing grey'],['1.4.0','Android back button, cover size, clearer empty states, search clear, new sort options, CSS cleanup'],['1.3.0','Cover picker (auto-pick, then choose other art), import progress and storage checks'],['1.2.0','In-game menu: screenshot, 3 save slots, mute, fullscreen'],['1.1.0','Backup and restore, tidier Settings, version number'],['1.0.0','First numbered version: library, covers, resume, screenshots, install']];
+const isDev=()=>/^katsantonis$/i.test((pref.name||'').trim());
 const DEVLOG=[];function dlog(k,m){m=String(m).slice(0,400);const l=DEVLOG[DEVLOG.length-1];if(l&&l.k===k&&l.m===m){l.n=(l.n||1)+1;return}DEVLOG.push({t:Date.now(),k,m});if(DEVLOG.length>300)DEVLOG.shift()}
 addEventListener('error',e=>dlog('error',e.message+' @'+String(e.filename||'').split('/').pop()+':'+e.lineno));
 addEventListener('unhandledrejection',e=>dlog('error','unhandled: '+((e.reason&&e.reason.message)||e.reason)));
 ['warn','error'].forEach(l=>{const o=console[l];console[l]=(...a)=>{try{dlog(l,a.map(x=>(x&&x.message)||x).join(' '))}catch{}o.apply(console,a)}});
+let AC=null;const ac=()=>{if(!AC){const C=window.AudioContext||window.webkitAudioContext;if(C)try{AC=new C()}catch{}}if(AC&&AC.state==='suspended')AC.resume().catch(()=>{});return AC};
+function tone(f,at,d,type,v,f2){const a=AC,o=a.createOscillator(),g=a.createGain(),t=a.currentTime+at;o.type=type||'sine';o.frequency.setValueAtTime(f,t);if(f2)o.frequency.exponentialRampToValueAtTime(f2,t+d);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(v||.05,t+.012);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(a.destination);o.start(t);o.stop(t+d+.03)}
+function sfx(n){if(pref.sfx===false||EMU||!ac())return;try{({tap:()=>tone(640,0,.05,'triangle',.04,420),nav:()=>{tone(420,0,.07,'sine',.04,560);tone(560,.05,.08,'sine',.035,700)},open:()=>tone(300,0,.12,'sine',.05,520),ok:()=>{tone(660,0,.09,'triangle',.045);tone(880,.08,.12,'triangle',.045)},err:()=>{tone(220,0,.12,'square',.035,160);tone(180,.1,.14,'square',.035,130)},fav:()=>{tone(880,0,.08,'sine',.045);tone(1175,.07,.08,'sine',.04);tone(1568,.14,.14,'sine',.035)},launch:()=>{tone(300,0,.25,'sawtooth',.025,900);tone(600,.1,.2,'triangle',.035,1200)},done:()=>[523,659,784,1047].forEach((f,i)=>tone(f,i*.07,.14,'triangle',.04))}[n]||(()=>{}))()}catch{}}
+const buzz=ms=>{try{pref.sfx!==false&&navigator.vibrate&&navigator.vibrate(ms)}catch{}};
+{const _sm=HTMLDialogElement.prototype.showModal;HTMLDialogElement.prototype.showModal=function(){sfx('open');return _sm.call(this)}}
 const AR={nes:.72,snes:1.4,sms:.72,gen:.72,sat:1,gb:.9,gbc:.9,gba:.9,n64:1.4,ps1:1,nds:.8,psp:.58,dc:1,ps2:.72,gc:.72,'3ds':.85,wii:.72};
 const measure=src=>new Promise(r=>{const i=new Image();i.onload=()=>r(Math.min(1.8,Math.max(.5,i.naturalWidth/i.naturalHeight)));i.onerror=()=>r(0);i.src=src});
 const urlToCover=async u=>{try{const r=await fetch(u);if(!r.ok)throw 0;const b=await r.blob();if(!/^image\//.test(b.type))throw 0;return await new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(fr.result);fr.readAsDataURL(b)})}catch{return u}};
@@ -406,6 +457,7 @@ const L=LS('c_links',[]);for(const l of meta.links||[])if(!L.some(x=>x.u===l.u))
 if(meta.prefs)Object.assign(pref,meta.prefs);savePref();if(meta.sg)SV('c_sg',Object.assign({},SG(),meta.sg));
 return {n,roms}}
 history.replaceState({v:'home'},'');
+if(typeof ResizeObserver!=='undefined')new ResizeObserver(()=>requestAnimationFrame(tile)).observe($('#content'));addEventListener('resize',()=>requestAnimationFrame(tile));document.fonts&&document.fonts.ready.then(tile);
 addEventListener('popstate',e=>{const d=$('#dlg');if(EMU){history.pushState({v:view},'');return toast('Use ✕ to leave the game.')}
 if(d.open){d.close();history.pushState({v:view},'');return}
 view=(e.state&&e.state.v)||'home';render()});
@@ -552,7 +604,7 @@ const PAD='<svg class="pad" viewBox="0 0 160 104" aria-hidden="true"><g style="f
 let impCancel=false;
 function prog(show,t,frac,sub){const p=$('#prog');p.hidden=!show;if(!show)return;$('#ipt').textContent=t;$('#ipf').style.width=Math.round(Math.min(1,Math.max(0,frac||0))*100)+'%';$('#ips').textContent=sub||''}
 $('#ipc').onclick=()=>{impCancel=true;$('#ipt').textContent='Cancelling…'};
-const toast=m=>{const t=$('#toast');t.textContent=m;t.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(()=>t.style.display='none',3500)};
+const toast=m=>{if(!/…$/.test(m))sfx(/couldn|can’t|cannot|failed|error|not enough|isn’t|aren’t|wouldn’t|no match/i.test(m)?'err':'ok');const t=$('#toast');t.textContent=m;t.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(()=>t.style.display='none',3500)};
 function theme(){document.documentElement.dataset.theme=pref.theme;document.documentElement.style.setProperty('--ac',pref.ac)}
 const savePref=()=>{SV('c_pref',pref);theme()};
 const fmt=b=>b>1e9?(b/1e9).toFixed(2)+' GB':b>1e6?(b/1e6).toFixed(1)+' MB':Math.max(1,Math.round(b/1e3))+' KB';
@@ -562,13 +614,13 @@ function detect(name){const e=(name.split('.').pop()||'').toLowerCase();const c=
 function hue(s){let h=0;for(const ch of s)h=(h*31+ch.charCodeAt(0))%360;return h}
 function cover(g,extra=''){const c=con(g.con),st=g.cover?`background-image:url('${cssu(g.cover)}')`:`background:#15181a`;
 return `<div class="cov${g.cover?'':' nc'}" style="aspect-ratio:${g.ar||AR[g.con]||.75};${st}">${g.cover?'':`<span class="lab" style="--cc:${c.c}"><b>${esc(g.title)}</b></span>`}<em>${esc(c.s)}</em>${g.fav?`<span class="st">${IC.fav}</span>`:''}<span class="pl" role="button" aria-label="Play" data-play="${g.id}">${IC.played}</span></div>`}
-const card=g=>`<button class="card" data-id="${g.id}" style="--ar:${g.ar||AR[g.con]||.75}">${cover(g)}<div class="ct"><b>${esc(g.title)}</b><span>${esc(con(g.con).s)} · ${fmt(g.size)}</span></div></button>`;
+const card=(g,i)=>`<button class="card" data-id="${g.id}" style="--ar:${g.ar||AR[g.con]||.75};--i:${Math.min(i||0,16)}">${cover(g)}<div class="ct"><b>${esc(g.title)}</b><span>${esc(con(g.con).s)} · ${fmt(g.size)}</span></div></button>`;
 
 function nav(){const cnt=id=>games.filter(g=>g.con===id).length;
-const it=(k,l,n,col,ic,tt)=>`<button data-v="${k}" class="${view===k?'on':''}" title="${esc(tt||l)}">${col?`<span class="dot" style="background:${col}"></span>`:IC[ic]}<span class="lb">${esc(l)}</span>${n===undefined?'':`<span class="n mono">${n}</span>`}</button>`;
+const it=(k,l,n,col,ic,tt)=>`<button data-v="${k}" class="${view===k?'on':''}" title="${esc(tt||l)}">${col?`<span class="dot" style="background:${col}"></span><span class="cb" style="--cc:${col}">${esc(l)}</span>`:IC[ic]}<span class="lb">${esc(l)}</span>${n===undefined?'':`<span class="n mono">${n}</span>`}</button>`;
 const grp={Nintendo:['nes','snes','gb','gbc','gba','n64','nds'],Sega:['sms','gen','sat'],Sony:['ps1','psp']},used=new Set(Object.values(grp).flat());
 const cg=(t,l)=>{l=l.filter(id=>cnt(id)||/^x/.test(id));return l.length?`<h6>${t}</h6>`+l.map(id=>{const c=con(id);return it('c:'+id,c.s,cnt(id)||'',c.c,0,c.name)}).join(''):''};
-$('#nav').innerHTML=`<h6>Library</h6>`+it('home','Home',undefined,0,'home')+it('all','All Games',games.length,0,'all')+it('fav','Favorites',games.filter(g=>g.fav).length||'',0,'fav')+it('web','Browser Decomps',undefined,0,'web')+Object.entries(grp).map(([t,l])=>cg(t,l)).join('')+cg('Custom',cons().filter(c=>c.id!=='other'&&!used.has(c.id)).map(c=>c.id))+cg('Other',cnt('other')?['other']:[])+`<h6>App</h6>`+it('set','Settings',undefined,0,'set')+(isDev()?it('dev','Diagnostics',undefined,0,'dev'):'');
+$('#nav').innerHTML='<div class="ns">'+`<h6>Library</h6>`+it('home','Home',undefined,0,'home')+it('all','All Games',games.length,0,'all')+it('fav','Favorites',games.filter(g=>g.fav).length||'',0,'fav')+it('web','Browser Decomps',undefined,0,'web')+Object.entries(grp).map(([t,l])=>cg(t,l)).join('')+cg('Custom',cons().filter(c=>c.id!=='other'&&!used.has(c.id)).map(c=>c.id))+cg('Other',cnt('other')?['other']:[])+`</div><div class="nb">`+it('set','Settings',undefined,0,'set')+(isDev()?it('dev','Diagnostics',undefined,0,'dev'):'')+`</div>`;
 $('#bnav').innerHTML=[['home','Home'],['all','Library'],['fav','Favorites'],['web','Decomps'],['set','Settings']].map(([k,l])=>`<button data-v="${k}" class="${view===k||(k==='all'&&view.startsWith('c:'))?'on':''}">${IC[k]}${l}</button>`).join('');$('#rnd').disabled=!games.length}
 function filtered(){let l=games.slice();const q=$('#q').value.trim().toLowerCase();
 if(view==='fav')l=l.filter(g=>g.fav);if(view==='played')l=l.filter(g=>g.played);if(view.startsWith('c:'))l=l.filter(g=>g.con===view.slice(2));
@@ -580,7 +632,9 @@ function emptyFor(){const q=$('#q').value.trim();if(!games.length)return empty('
 const m={fav:['No favorites yet','Open a game and tap Favorite to pin it here.'],played:['Nothing played yet','Games you launch will show up here.'],recent:['Nothing added this week','Games you import show up here for seven days.']}[view],[t,pp]=q?['No games match “'+q+'”','Check the spelling or try a shorter search.']:(m||['No games here','Try a different filter.']);
 return `<div class="empty">${PAD}<h2 style="margin-top:0">${esc(t)}</h2><p>${esc(pp)}</p>${q?'<button class="btn" id="clr">Clear search</button>':''}</div>`}
 function empty(msg){return `<div class="empty">${PAD}<h2 style="margin-top:0">${msg||'Your library is empty'}</h2><p>Drop ROM files here, or import them yourself. Nothing is uploaded anywhere.</p><button class="btn pri" onclick="$('#fi').click()">Import games</button></div>`}
-function render(){nav();const el=$('#content');el.dataset.size=pref.size||'m';if(render.v!==view){render.v=view;el.classList.remove('in');void el.offsetWidth;el.classList.add('in')}
+function render(){render0();tile()}
+function tile(){document.querySelectorAll('.grid').forEach(g=>[...g.children].forEach(c=>{c.style.gridRowEnd='span '+Math.ceil((c.offsetHeight+14)/6)}))}
+function render0(){nav();const el=$('#content');el.dataset.size=pref.size||'m';if(render.v!==view){render.v=view;el.classList.remove('in');void el.offsetWidth;el.classList.add('in');clearTimeout(render.t);render.t=setTimeout(()=>el.classList.remove('in'),1000)}
 if(view==='set')return settings(el);
 if(view==='web')return web(el);
 if(view==='dev'){if(isDev())return devPage(el);view='home';return render()}
@@ -592,7 +646,7 @@ el.innerHTML=`<div class="hh"><h1>${hi}${pref.name?', '+esc(pref.name):''}${h<5?
 (!games.length?`<div class="empty">${PAD}<h2 style="margin-top:0">Add your first game</h2><p>Drop ROM files here, or pick a file or folder. Everything stays on this device.</p><button class="btn pri" onclick="$('#imp').click()">Import games</button></div><div class="steps"><div><b><i>01</i>Import</b>Pick ROMs or a whole folder. A .cue and its .bin files get packed together.</div><div><b><i>02</i>Cover art</b>Fetched automatically from the libretro library.</div><div><b><i>03</i>Play</b>Progress saves when you quit and resumes next time.</div></div><p class="mono" style="color:var(--mu);font-size:12px;margin-top:16px">Plays in the browser: NES · SNES · Master System · Genesis · Saturn · GB · GBC · GBA · N64 · PS1 · DS</p>`:
 (last?`<div class="cont">${last.cover?`<div class="cbg" style="background-image:url('${cssu(last.cover)}')"></div>`:''}<div class="cart">${cover(last)}</div><div class="ci"><span class="mono eyebrow">CONTINUE PLAYING</span><h2>${esc(last.title)}</h2><p class="sub" style="margin:0 0 14px">${esc(con(last.con).name)}${last.state?' · resumes where you left off':''}${last.time?' · '+fmtT(last.time)+' played':''}</p><button class="btn pri" data-play="${last.id}">${IC.played}${last.state?'Resume':'Play'}</button></div></div>`:'')+
 sec('Recently added','recent',row(games.slice().sort((a,b)=>b.added-a.added)))+(games.some(g=>g.fav)?sec('Favorites','fav',row(games.filter(g=>g.fav))):'')+
-sec('Browse by console','',`<div class="ct2">${used.map(c=>`<button class="ctile" data-v="c:${c.id}" style="--cc:${c.c}"><b>${esc(c.s)}</b><span>${esc(c.name)}</span><em class="mono">${games.filter(g=>g.con===c.id).length}</em></button>`).join('')}</div>`));return}
+sec('Browse by console','',`<div class="ct2">${used.map((c,i)=>`<button class="ctile" data-v="c:${c.id}" style="--cc:${c.c};--i:${i}"><b>${esc(c.s)}</b><span>${esc(c.name)}</span><em class="mono">${games.filter(g=>g.con===c.id).length}</em></button>`).join('')}</div>`));return}
 const l=filtered(),c=view.startsWith('c:')?con(view.slice(2)):null;
 const title=c?c.name:((view==='all'&&{fav:'Favorites',recent:'Recently added',played:'Recently played'}[pref.filter])||{all:'All games',fav:'Favorites',recent:'Recently added',played:'Recently played',home:'Search results'}[view]);
 const chips=(view==='all'||view.startsWith('c:'))?`<div class="chips"><button class="chip ${view==='all'?'on':''}" data-v="all">All</button>${cons().filter(x=>games.some(g=>g.con===x.id)).map(x=>`<button class="chip ${view==='c:'+x.id?'on':''}" data-v="c:${x.id}">${esc(x.s)}</button>`).join('')}</div>`:'';
@@ -620,6 +674,7 @@ l.push({c:$('#lcat').value,n,u:u.href});SV('c_links',l);d.close();render()};d.sh
 function settings(el){const install=ip?'<p class="sub">Install Cartridge as an app with its own window and icon.</p><button class="btn pri" id="ins">Install Cartridge</button>':matchMedia('(display-mode: standalone)').matches?'<div class="note">Cartridge is installed on this device.</div>':'<div class="note">To install, use your browser’s menu: <b>Install app</b> in Chrome or Edge, or Share → Add to Home Screen on iPhone and iPad.</div>';
 el.innerHTML=`<h1>Settings</h1><p class="sub">Preferences and library management.</p>
 <section class="sg"><h2>Appearance</h2>
+<label><input type="checkbox" id="sfxc" ${pref.sfx!==false?'checked':''}> Interface sounds and haptics</label>
 <label><input type="checkbox" id="th" ${pref.theme==='light'?'checked':''}> Light theme</label>
 <p class="lbl">Accent color</p><div class="sw">${['#34c98a','#38bdf8','#a78bfa','#ff4f8b','#ff8a3d','#f2c94c'].map(c=>`<button style="background:${c}" data-ac="${c}" aria-label="Accent ${c}"></button>`).join('')}<input type="color" id="ac" value="${pref.ac}" aria-label="Custom accent"></div>
 <p class="lbl">Your name (for the greeting)</p><input id="nm" value="${esc(pref.name||'')}" style="max-width:260px"></section>
@@ -672,6 +727,7 @@ $('#pst').onclick=async()=>{try{toast((await navigator.storage.persist())?'Libra
 const tv=()=>{const h=$('#vh');h.hidden=!h.hidden;$('#vc').setAttribute('aria-expanded',String(!h.hidden));$('.vhint').textContent=h.hidden?'Tap for version history ▾':'Hide version history ▴'};
 $('#vc').onclick=tv;$('#vc').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();tv()}};
 $('#coi').onchange=async e=>{pref.coi=e.target.checked;savePref();try{const r=await navigator.serviceWorker.getRegistration(),sw=r&&(r.active||r.waiting);if(!sw)throw 0;sw.postMessage({type:'coi',on:pref.coi});toast(pref.coi?'Turning on PSP support, restarting…':'Turning off PSP support, restarting…');setTimeout(()=>location.reload(),900)}catch{toast('PSP support needs the hosted app with its service worker running.')}};
+$('#sfxc').onchange=e=>{pref.sfx=e.target.checked;savePref();sfx('ok')};
 $('#fsa').onchange=e=>{pref.fsAll=e.target.checked;savePref();if(pref.fsAll)ensureFS();else if(!EMU)outFS()};
 $('#fs').onchange=e=>{pref.fs=e.target.checked;savePref()};
 $('#au').onchange=e=>{pref.auto=e.target.checked;savePref()};$('#ap').onchange=e=>{pref.ap=e.target.checked;savePref()};$('#rs2').value=pref.res||2;$('#psq').value=pref.psp||'fast';$('#psq').onchange=e=>{pref.psp=e.target.value;savePref()};$('#rs2').onchange=e=>{pref.res=+e.target.value;savePref()};
@@ -703,7 +759,7 @@ if(e==='pkg')st='Imported, but .pkg installers can’t be played. For PSP use an
 const g={id:crypto.randomUUID(),title:clean(f.name),file:f.name,size:f.size,con:id,added:Date.now(),fav:false,desc:'',cover:'',played:0};
 try{await tx(['games','roms'],'readwrite',t=>{t.objectStore('games').put(g);t.objectStore('roms').put(f,g.id)});games.push(g);added.push(g);ok++;res.push([f.name,f.size,con(id).s,st])}
 catch(err){res.push([f.name,f.size,'—','Failed: '+(err&&err.name==='QuotaExceededError'?'not enough storage':'the browser couldn’t store this file')])}}
-prog(false);dlog('import',ok+' of '+files.length+' added');render();const d=$('#dlg');
+prog(false);if(ok)sfx('done');dlog('import',ok+' of '+files.length+' added');render();const d=$('#dlg');
 d.innerHTML=`<h2 style="margin-top:0">Import complete: ${ok} of ${files.length} added</h2><div style="max-height:50vh;overflow:auto"><table><tr><th>File</th><th>Size</th><th>Console</th><th>Status</th></tr>${res.map(r=>`<tr><td>${esc(r[0])}</td><td>${fmt(r[1])}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join('')}</table></div><div class="acts"><button class="btn pri" id="ok">Done</button></div>`;
 $('#ok').onclick=()=>d.close();d.showModal();if(pref.ap!==false&&added.length&&!impCancel)autoCovers(added)}
 
@@ -715,7 +771,7 @@ $('#cx').onclick=()=>d.close();
 if(g.state)$('#rs').onclick=async()=>{await tx('states','readwrite',t=>t.objectStore('states').delete(id));g.state=false;await putG(g);toast('Save state cleared.');details(id)};
 
 $('#gal').onclick=()=>gallery(g);
-$('#fv').onclick=async()=>{g.fav=!g.fav;await putG(g);render();details(id)};
+$('#fv').onclick=async()=>{g.fav=!g.fav;if(g.fav){sfx('fav');buzz(14)}await putG(g);render();details(id)};
 $('#rm').onclick=()=>confirmD(`Remove “${g.title}” from the library? The stored copy is deleted from this browser; your original file is untouched.`,async()=>{await tx(['games','roms','states'],'readwrite',t=>{t.objectStore('games').delete(id);t.objectStore('roms').delete(id);t.objectStore('states').delete(id);t.objectStore('states').delete(SSK(id));t.objectStore('states').delete(IDBKeyRange.bound('qs:'+id+':','qs:'+id+':\uffff'))});games=games.filter(x=>x.id!==id);render();toast('Game removed.')});
 $('#ed').onclick=()=>edit(g);$('#pl').onclick=()=>play(g);if(!d.open)d.showModal()}
 function edit(g){const d=$('#dlg');
@@ -746,7 +802,8 @@ w.querySelector('iframe').srcdoc=`<meta name="viewport" content="width=device-wi
 EMU={g,w,t0:Date.now(),core,gname,res:!!sUrl};setupMenu(w);setupConsole(w);dlog('play',g.title+' · core '+core+' · as '+gname+(sUrl?' · resuming':''));setTimeout(probeEmu,6000);setTimeout(probeLate,25000);if(core==='psp')watchStart(w,'PSP',!!sUrl);if(isDev()&&pref.hud)startHud(w);$('#eq').onclick=async()=>{$('#eq').disabled=true;let ok=false;if(pref.auto!==false)ok=await saveState();addTime();w.remove();document.body.classList.remove('playing');outFS();EMU=null;URL.revokeObjectURL(url);if(sUrl)URL.revokeObjectURL(sUrl);render();if(ok)toast('Progress saved. It resumes next time.')};render()}
 function msg(t,m){const d=$('#dlg');d.innerHTML=`<h2 style="margin-top:0">${esc(t)}</h2><p>${esc(m)}</p><div class="acts"><button class="btn pri" id="ok">OK</button></div>`;$('#ok').onclick=()=>d.close();if(!d.open)d.showModal()}
 
-document.addEventListener('click',e=>{if(!e.target.closest('#side,#tg'))$('#side').classList.remove('open');const pb=e.target.closest('[data-play]');if(pb){const g=games.find(x=>x.id===pb.dataset.play);if(g)play(g);return}const ff=e.target.closest('[data-f]');if(ff){view='all';pref.filter=ff.dataset.f;pref.sort=ff.dataset.f==='played'?'played':'added';savePref();if((history.state&&history.state.v)!==view)history.pushState({v:view},'');$('#q').value='';render();$('#content').scrollTop=0;return}
+document.addEventListener('click',e=>{const bt=e.target.closest('button');if(bt&&bt.id!=='fv'){sfx(bt.id==='pl'||bt.dataset.play?'launch':(bt.dataset.v||bt.dataset.f)?'nav':'tap');if(bt.id==='pl'||bt.dataset.play)buzz(12)}
+if(!e.target.closest('#side,#tg'))$('#side').classList.remove('open');const pb=e.target.closest('[data-play]');if(pb){const g=games.find(x=>x.id===pb.dataset.play);if(g)play(g);return}const ff=e.target.closest('[data-f]');if(ff){view='all';pref.filter=ff.dataset.f;pref.sort=ff.dataset.f==='played'?'played':'added';savePref();if((history.state&&history.state.v)!==view)history.pushState({v:view},'');$('#q').value='';render();$('#content').scrollTop=0;return}
 const v=e.target.closest('[data-v]');if(v){view=v.dataset.v;pref.filter='all';if((history.state&&history.state.v)!==view)history.pushState({v:view},'');$('#q').value='';$('#side').classList.remove('open');render();$('#content').scrollTop=0;return}
 const c=e.target.closest('.card');if(c)details(c.dataset.id)});
 $('#tg').onclick=()=>{const s=$('#side');(innerWidth<761||matchMedia('(orientation:landscape) and (max-height:540px)').matches)?s.classList.toggle('open'):s.classList.toggle('min')};
