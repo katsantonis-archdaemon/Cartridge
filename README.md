@@ -9,6 +9,7 @@ A private retro game library and launcher that lives in a website. Import the RO
 No server, no account, no build step. Your files never leave your device.
 
 > **Legal:** Cartridge ships with no games, BIOS files, or ROM downloads. It is for games you legally own. You supply your own files.
+> Games shown in the image above are test games for showcase, they are not real
 
 ## Features
 
