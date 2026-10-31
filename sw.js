@@ -1,7 +1,7 @@
 // Cartridge service worker. Keep V in sync with APP_VERSION in index.html on every update.
-const V='cartridge-1.9.1',EJS='ejs-v1',CFG='cartridge-cfg',SHELL=['./','./index.html','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png'];
+const V='cartridge-1.10.0',EJS='ejs-v1',CFG='cartridge-cfg',DATS='cartridge-dats',SHELL=['./','./index.html','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
-self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V&&x!==EJS&&x!==CFG).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V&&x!==EJS&&x!==CFG&&x!==DATS).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 // The page tells us whether experimental PSP support is on (it needs cross-origin isolation headers, which GitHub Pages can't send).
 self.addEventListener('message',e=>{const d=e.data;if(d&&d.type==='coi')e.waitUntil(caches.open(CFG).then(c=>d.on?c.put('/__coi',new Response('1')):c.delete('/__coi')))});
 const coi=res=>{if(!res||res.status===0||res.type==='opaque'||res.type==='opaqueredirect')return res;const h=new Headers(res.headers);h.set('Cross-Origin-Opener-Policy','same-origin');h.set('Cross-Origin-Embedder-Policy','credentialless');return new Response(res.body,{status:res.status,statusText:res.statusText,headers:h})};
